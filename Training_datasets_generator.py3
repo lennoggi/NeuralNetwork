@@ -23,7 +23,7 @@ rand_seed = -1
 noise_scale = 1.
 
 # Number of training datasets to be generated
-ndsets = 100
+ndsets = 10000
 
 # Name of the file where the training datasets will be saved
 outfilename = "Training_datasets.asc"
