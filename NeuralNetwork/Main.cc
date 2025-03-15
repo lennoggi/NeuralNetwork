@@ -7,6 +7,7 @@
 #include <random>
 
 #include "include/Activation_functions.hh"
+#include "include/Loss_functions.hh"
 #include "Parameters.hh"
 
 using namespace std;
@@ -107,17 +108,17 @@ int main() {
     #endif
 
 
-//    // Loss function
-//    // XXX XXX XXX XXX XXX XXX
-//    double (*loss)(const array<double, INPUT_SIZE>&);
-//
-//    #if (LOSS == LSQ)
-//    loss = lsq;
-//    #elif (LOSS == LOGISTIC)
-//    loss = logistic;
-//    #else
-//    #error "Invalid loss function"
-//    #endif
+    // Loss function
+    // XXX XXX XXX XXX XXX XXX
+    double (*compute_loss)(const double&, const double&);
+
+    #if (LOSS == LSQ)
+    compute_loss = lsq;
+    #elif (LOSS == LOGISTIC)
+    compute_loss = logistic;
+    #else
+    #error "Invalid loss function"
+    #endif
 
 
     // Begin the training
@@ -128,52 +129,17 @@ int main() {
         }
 
         const auto measured_output = activate(sum);
-        //cout << measured_output << endl;
+        const auto expected_output = dset.at(ninput);  // Last value in dset
+        const auto loss            = compute_loss(measured_output, expected_output);
+
+        // XXX XXX XXX XXX XXX XXX
+        // XXX: from here
+        // XXX: compute the gradient of the loss function wrt the weights and save it,
+        // XXX  then modify the weights taking the average of the gradients calculated from each dataset as
+        // XXX      for (auto i = decltype(ninput){0}; i < ninput; ++i) {
+        // XXX          weights.at(i) = weights.at(i) - LEARNING_RATE*<\partial L / \partial w_i>
+        // XXX  where LEARNING_RATE must be defined in Parameters.hh
     }
-
-
-
-
-
-
-
-
-
-
-
-//    // Neuron activation function
-//    double (*activate)(const double&);
-//
-//    #if (ACTIVATION == LINEAR)
-//    activate = linear;
-//    #elif (ACTIVATION == SIGN)
-//    activate = sign;
-//    #elif (ACTIVATION == RELU)
-//    activate = ReLU;
-//    #elif (ACTIVATION == HARD_TANH)
-//    activate = hard_tanh;
-//    #elif (ACTIVATION == SIGMOID)
-//    activate = sigmoid;
-//    #elif (ACTIVATION == TANH)
-//    activate = mytanh;
-//    #else
-//    #error "Invalid neuron activation function"
-//    #endif
-//
-//
-//    // Loss function
-//    // XXX XXX XXX XXX XXX XXX
-//    double (*loss)(const array<double, INPUT_SIZE>&);
-//
-//    #if (LOSS == LSQ)
-//    loss = lsq;
-//    #elif (LOSS == LOGISTIC)
-//    loss = logistic;
-//    #else
-//    #error "Invalid loss function"
-//    #endif
-
-
 
 
     return 0;

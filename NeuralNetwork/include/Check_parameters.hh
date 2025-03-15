@@ -11,5 +11,9 @@ static_assert(ACTIVATION == LINEAR    or ACTIVATION == SIGN    or ACTIVATION == 
 
 static_assert(LOSS == LSQ or LOSS == LOGISTIC);
 
+#if (LOSS == LOGISTIC || ACTIVATION != SIGMOID)
+#error "The logistic loss function must be used along with the sigmoid activation function"
+#endif
+
 
 #endif

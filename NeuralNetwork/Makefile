@@ -26,7 +26,7 @@ endif
 
 
 # Objects to be built
-OBJ = Activation_functions.o Main.o
+OBJ = Activation_functions.o Loss_functions.o Main.o
 EXE = NeuralNetwork_exe
 
 
@@ -36,6 +36,9 @@ build: ${OBJ}
 
 Activation_functions.o: Activation_functions.cc include/Activation_functions.hh
 	${CXX} ${CXXFLAGS} ${CXX_OPTIMIZE_FLAGS} ${CXX_WARN_FLAGS} ${CXX_DEBUG_FLAGS} -c Activation_functions.cc
+
+Loss_functions.o: Loss_functions.cc include/Loss_functions.hh
+	${CXX} ${CXXFLAGS} ${CXX_OPTIMIZE_FLAGS} ${CXX_WARN_FLAGS} ${CXX_DEBUG_FLAGS} -c Loss_functions.cc
 
 Main.o: Main.cc include/Activation_functions.hh Parameters.hh
 	${CXX} ${CXXFLAGS} ${CXX_OPTIMIZE_FLAGS} ${CXX_WARN_FLAGS} ${CXX_DEBUG_FLAGS} -c Main.cc
