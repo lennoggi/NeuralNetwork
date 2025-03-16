@@ -4,6 +4,9 @@
 #include "../Parameters.hh"
 
 
+static_assert(N_EPOCHS > 0);
+static_assert(LEARNING_RATE > 0);
+static_assert(BATCH_SIZE > 0);
 static_assert(RAND_SEED > 0 or RAND_SEED == -1);
 
 static_assert(ACTIVATION == LINEAR    or ACTIVATION == SIGN    or ACTIVATION == RELU or

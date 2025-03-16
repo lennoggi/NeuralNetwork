@@ -3,10 +3,19 @@
 
 #include <cmath>
 
+
 double lsq(const double &measured_output,
            const double &expected_output);
 
 double logistic(const double &measured_output,
                 const double &expected_output);
+
+
+double d_lsq(const double &measured_output,
+             const double &expected_output);
+
+double d_logistic(const double &measured_output,
+                  const double &expected_output);
+
 
 #endif
