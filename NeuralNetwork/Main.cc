@@ -85,14 +85,31 @@ int main() {
     #endif
 
     uniform_real_distribution<double> dist(0., 1.);
-
     vector<double> weights(ninput);
+
+    string weights_filename = "Weights.asc";
+    ofstream weights_file(weights_filename);
+
+    if (weights_file.is_open()) {
+        for (auto i = decltype(ninput){0}; i < ninput; ++i) {
+            const auto ip = i + 1;
+            weights_file << "# Column " << ip << ": weight " << ip << endl;
+        }
+    } else {
+        cerr << "Unable to open file '" << weights_filename << "' for writing" << endl;
+        return 1;
+    }
+
     cout << endl << "Initial weights" << endl;
 
-    for (auto &w : weights) {
-        w = dist(gen);
-        cout << w << endl;
+    for (auto i = decltype(ninput){0}; i < ninput; ++i) {
+        weights.at(i) = dist(gen);
+        cout << weights.at(i) << endl;
+        weights_file << weights.at(i) << "\t";
     }
+
+    cout << endl;
+    weights_file << endl;
 
 
     // Set up the neuron activation function
@@ -183,13 +200,17 @@ int main() {
                 avg_grad_loss_batch.at(i) = (double) avg_grad_loss_batch.at(i)/ninput;
                 weights.at(i)            -= LEARNING_RATE*avg_grad_loss_batch.at(i);
                 avg_grad_loss_batch.at(i) = 0.;
+                weights_file << weights.at(i) << "\t";
             }
+
+            weights_file << endl;
 
             cout << "Training epoch " << epoch << " / " << N_EPOCHS
                  << ": done processing dataset " << n << " / " << ndsets << endl;
         }
     }
 
+    weights_file.close();
     cout << endl << "Final weights" << endl;
 
     for (const auto &w : weights) {

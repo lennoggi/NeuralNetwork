@@ -34,7 +34,7 @@
  * descent. Too small numbers lead to slow learning and can potentially cause
  * algorithm to get stuck at local minima of L(w) (loss function, function of the
  * weights); too high values may cause the algorithm to not converge.           */
-#define LEARNING_RATE 1.e-03 
+#define LEARNING_RATE 1.e-04
 
 /* Seed feeding the random numbers generator used to initialize the weights.
  * Use a positive integer or -1 to use time(NULL) as the seed.                  */
