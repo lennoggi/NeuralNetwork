@@ -15,7 +15,9 @@ jobs:
               run:  pip3 install numpy
             - name: Generate the training dataset
               run:  python3 Training_datasets_generator.py3
+            - name: Move to the NeuralNetwork subdirectory
+              run:  cd NeuralNetwork
             - name: Build the network
-              run:  cd NeuralNetwork && make -j3 options=OptionLists/Ubuntu_GNU_CI.cfg
+              run:  make -j3 options=OptionLists/Ubuntu_GNU_CI.cfg
             - name: Run
               run:  ./NeuralNetwork_exe
