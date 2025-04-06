@@ -1,3 +1,5 @@
+[![CI](https://github.com/lennoggi/NeuralNetwork/actions/workflows/CI.yml/badge.svg)](https://github.com//lennoggi/NeuralNetwork/actions/workflows/CI.yml)
+
 # NeuralNetwork
 A simple neural network model with one computational node performing linear regression
 
