@@ -11,9 +11,11 @@ jobs:
         steps:
             - name: Checkout the repository
               uses: actions/checkout@v4
+            - name: Install NumPy
+            - run:  pip3 install numpy
             - name: Generate the training dataset
-              run: python3 Training_datasets_generator.py3
+              run:  python3 Training_datasets_generator.py3
             - name: Build the network
-              run: cd NeuralNetwork && make -j3 options=OptionLists/Ubuntu_Intel.cfg
+              run:  cd NeuralNetwork && make -j3 options=OptionLists/Ubuntu_Intel.cfg
             - name: Run
-              run: ./NeuralNetwork_exe
+              run:  ./NeuralNetwork_exe
