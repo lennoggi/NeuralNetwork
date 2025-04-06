@@ -12,7 +12,7 @@ jobs:
             - name: Checkout the repository
               uses: actions/checkout@v4
             - name: Install NumPy
-            - run:  pip3 install numpy
+              run:  pip3 install numpy
             - name: Generate the training dataset
               run:  python3 Training_datasets_generator.py3
             - name: Build the network
