@@ -1,11 +1,11 @@
-name: Build and test
+name: CI
 
 on:
     push:
     pull_request:
 
 jobs:
-    CI:
+    build_and_test:
         runs-on: ubuntu-latest
 
         steps:
