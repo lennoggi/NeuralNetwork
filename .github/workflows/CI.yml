@@ -16,6 +16,6 @@ jobs:
             - name: Generate the training dataset
               run:  python3 Training_datasets_generator.py3
             - name: Build the network
-              run:  cd NeuralNetwork && make -j3 options=OptionLists/Ubuntu_Intel.cfg
+              run:  cd NeuralNetwork && make -j3 options=OptionLists/Ubuntu_GNU_CI.cfg
             - name: Run
               run:  ./NeuralNetwork_exe
