@@ -1,0 +1,19 @@
+name: Build and test
+
+on:
+    push:
+    pull_request:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout the repository
+              uses: actions/checkout@v4
+            - name: Generate the training dataset
+              run: python3 Training_datasets_generator.py3
+            - name: Build the network
+              run: cd NeuralNetwork && make -j3 options=OptionLists/Ubuntu_Intel.cfg
+            - name: Run
+              run: ./NeuralNetwork_exe
