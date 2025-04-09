@@ -78,7 +78,7 @@ int main() {
     #if (RAND_SEED > 0)
     mt19937 gen(RAND_SEED);
     #elif (RAND_SEED == -1)
-    random_device rd;  // Use machine entropy as 
+    random_device rd;  // Use machine entropy as the random seed 
     mt19937 gen(rd());
     #else
     #error "Invalid seed for the random number generator"
