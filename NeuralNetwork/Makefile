@@ -32,7 +32,7 @@ EXE = NeuralNetwork_exe
 
 # Build all targets
 build: ${OBJ}
-	${CXX} ${CXXFLAGS} ${CXX_OPTIMIZE_FLAGS} ${CXX_WARN_FLAGS} ${CXX_DEBUG_FLAGS} ${LDFLAGS} -o ${EXE} ${OBJ}
+	${CXX} ${LDFLAGS} -o ${EXE} ${OBJ}
 
 Activation_functions.o: Activation_functions.cc include/Activation_functions.hh
 	${CXX} ${CXXFLAGS} ${CXX_OPTIMIZE_FLAGS} ${CXX_WARN_FLAGS} ${CXX_DEBUG_FLAGS} -c Activation_functions.cc
