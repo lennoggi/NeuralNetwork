@@ -1,4 +1,5 @@
 [![CI](https://github.com/lennoggi/NeuralNetwork/actions/workflows/CI.yml/badge.svg)](https://github.com//lennoggi/NeuralNetwork/actions/workflows/CI.yml)
+[![Docker image CI](https://github.com/lennoggi/NeuralNetwork/actions/workflows/Docker_image_CI.yml/badge.svg)](https://github.com//lennoggi/NeuralNetwork/actions/workflows/Docker_image_CI.yml)
 
 # NeuralNetwork
 A simple neural network model with one computational node performing linear regression
