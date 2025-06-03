@@ -1,5 +1,5 @@
 # Start by pulling a standard Ubuntu image
-FROM ubuntu-latest
+FROM ubuntu:24.04
 
 # All the subsequent commands will be run under /app in the container
 WORKDIR /app
