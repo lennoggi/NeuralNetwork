@@ -1,15 +1,13 @@
-# Start by pulling a standard Ubuntu image
-FROM ubuntu:24.04
+# Start by pulling a standard Python3 image (works better than Ubuntu images
+# with pip). See https://hub.docker.com/_/python .
+##FROM ubuntu:latest
+FROM python:latest
 
 # All the subsequent commands will be run under /app in the container
 WORKDIR /app
 
-# Install the necessary packages
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive && \
-    apt-get install -y --no-install-recommends python3 python3-pip && \
-    pip3 install numpy && \
-    rm -rf /var/lib/apt/lists/*
+# Install NumPy
+RUN pip3 install --no-cache-dir numpy
 
 # Copy the whole repository into /app under the container
 COPY . .
