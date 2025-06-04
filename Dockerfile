@@ -5,8 +5,9 @@ FROM ubuntu:24.04
 WORKDIR /app
 
 # Install the necessary packages
-RUN apt update && \
+RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive && \
+    apt-get install -y --no-install-recommends python3 python3-pip
     pip3 install numpy && \
     rm -rf /var/lib/apt/lists/*
 
