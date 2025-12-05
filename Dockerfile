@@ -2,8 +2,7 @@
 # with pip). See https://hub.docker.com/_/python .
 ##FROM ubuntu:latest
 ##FROM python:latest  # Not always reliable
-RUN docker pull python:3.11-slim
-FROM python:3.11-slim
+##FROM python:3.11-slim
 
 # All the subsequent commands will be run under /app in the container
 WORKDIR /app
