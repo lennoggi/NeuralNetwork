@@ -11,9 +11,5 @@ jobs:
         steps:
             - name: Checkout the repository
               uses: actions/checkout@v4
-            - name: Set up Python
-              uses: actions/setup-python@v4
-              with:
-                  python-version: "3.11"
             - name: Build the Docker image
               run:  docker build . --file Dockerfile --tag neural_network:$(date +%s)
