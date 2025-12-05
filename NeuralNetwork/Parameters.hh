@@ -33,7 +33,7 @@
 /* Learning rate, i.e., speed at which the weights are updated via loss gradient
  * descent. Too small numbers lead to slow learning and can potentially cause
  * algorithm to get stuck at local minima of L(w) (loss function, function of the
- * weights); too high values may cause the algorithm to not converge.           */
+ * weights); too high values may prevent the algorithm from converging.         */
 #define LEARNING_RATE 1.e-04
 
 /* Seed feeding the random numbers generator used to initialize the weights.
